@@ -32,13 +32,13 @@ public class CandidateUpdate {
    //in order to find the path between a node and the root. 
    Graph nodesGraph;
     
-    
+   //constructor 
    CandidateUpdate(String fieldsJsonPath) throws IOException, IOException, IOException, IOException, IOException{
         this.fieldsJsonPath=fieldsJsonPath;
     }
   
 
-
+   //uses ReadFieldsForStats class to read all fields from the fields.json file and loads them to ArrayList<Field> fields as Field class object . 
    private void loadFields() throws FileNotFoundException, IOException{
         //read all fields of a specific version and save them as a structure
         ReadFieldsForStats read=new ReadFieldsForStats(fieldsJsonPath);
@@ -162,6 +162,8 @@ public class CandidateUpdate {
              
     }
 
+   //loadNodes uses ReadNodes class to read all nodes from the fields.json file and loads them to ArrayList<Node> nodes as Node class objects. 
+   //loadNodes also creates a nodesGraph 
    private void loadNodes() throws FileNotFoundException, IOException {
         //read all nodes of a specific version and save them as a structure
         ReadNodes readN=new ReadNodes(fieldsJsonPath);
@@ -264,7 +266,8 @@ public class CandidateUpdate {
         //Just for test
         //makeFile("C:/Users/achid/OneDrive/Desktop/Candidate_Upgrade1/test/nodes.txt",prints);
     }     
-       
+
+    
    private void Mmode(String noticepath, String outputPath) throws IOException {
         String output="";
         String eform;
@@ -419,7 +422,7 @@ public class CandidateUpdate {
         makeFile(outputPath,output);
     }
         
-        
+   //generate a flat list of fields and Nodes for a specific notice     
    private String specialMnode(String noticepath, String notice) throws IOException {
         String output="";
         String eform;
